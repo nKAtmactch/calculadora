@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8">
+<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel = "stylesheet" href= "/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src = "/js/bootstrap.min.js"></script>
+<title>Mi Calculadora </title>
+</head>
+
+<body>
+	<div class = "container">
+	<div class = "jumbotron">
+	<h1 class= "display-4">Calculadora Simple</h1>
+	<p class="lead">
+	Ejemplo de calaculadora usando MVC con spring 
+	</p>
+	<hr class = "my-4">
+	<p>Introduce los datos solicitados.</p>
+	<div>
+	
+	<form action="#" th:action="@{/resultado}" th:object = "${calcu}" method= "post">
+		<p> Primer número: <input type = "number" step="any" th:field="*{num1}" class="form-control"/></p>
+		<p> Segundo número: <input type = "number" step="any" th:field="*{num2}" class="form-control"/></p>
+		<p>
+		Operación:
+		<select th:field = "*{operador}" class = "form-control">
+			<option value = "+">Suma (+)</option>
+			<option value = "-">Resta (-)</option>
+			<option value = "*">Multiplicación (*)</option>
+			<option value = "/">División (/)</option>
+		</select>
+		</p>
+		
+		
+		<label th:text ="'Resultado de ' + *{num1} + *{operador} + *{num2} + ' = ' + *{resultado}"></label>
+		<p><input type ="submit" value="Calcular"/> 
+			<input type = "reset" value="Limpiar" /></p>		
+	</form>
+	</div>
+	<hr class="my-4">
+	<div>
+		<div class= "row">
+			<div class="col-2"></div>
+			<div class ="col-8">
+				<p>Desarrollo Web Avanzado. Pérez A. C..</p>
+				<p>ITSSNP</p>
+				<p>24-05-2021</p>
+			</div>
+		<div class = "col-2"></div>
+		</div>
+	</div>
+	</div>
+	</div>
+</body>
+</html>
